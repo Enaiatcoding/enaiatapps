@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Her ❤️ — Enaiat</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Poppins", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, #ff9eb5 0%, transparent 35%),
+        linear-gradient(135deg, #12000c, #3b071f, #18000f);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      color: #ff6f9f;
+      font-size: 22px;
+      animation: float 8s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+      15% { opacity: 0.8; }
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .app {
+      position: relative;
+      z-index: 1;
+      width: min(900px, 92%);
+      margin: auto;
+      padding: 50px 0;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .card {
+      width: 100%;
+      padding: 45px 30px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+    }
+
+    .small {
+      color: #ffb8cd;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 9vw, 90px);
+      line-height: 1;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #fff, #ff9fbd, #fff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      max-width: 650px;
+      margin: auto;
+      color: #f8dce6;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 25px;
+      border-radius: 999px;
+      margin-top: 28px;
+      background: linear-gradient(135deg, #ff477e, #ff1760);
+      box-shadow: 0 10px 30px rgba(255, 38, 103, .35);
+      transition: .25s;
+    }
+
+    button:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 15px 35px rgba(255, 38, 103, .5);
+    }
+
+    section {
+      margin: 80px 0;
+    }
+
+    .story {
+      display: grid;
+      gap: 20px;
+    }
+
+    .story-card {
+      padding: 30px;
+      border-radius: 25px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      transition: .3s;
+    }
+
+    .story-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,.12);
+    }
+
+    .number {
+      color: #ff668f;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .story-card h2 {
+      margin: 10px 0;
+    }
+
+    .story-card p {
+      color: #e8cbd5;
+      line-height: 1.8;
+    }
+
+    .questions {
+      text-align: center;
+    }
+
+    .question-box {
+      margin-top: 30px;
+      padding: 35px;
+      border-radius: 25px;
+      background: rgba(255,255,255,.09);
+    }
+
+    #question {
+      font-size: clamp(22px, 5vw, 34px);
+      line-height: 1.4;
+      margin-bottom: 15px;
+    }
+
+    #answer {
+      min-height: 25px;
+      color: #ffabc2;
+      font-weight: 600;
+    }
+
+    .answers {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .answers button {
+      margin-top: 15px;
+    }
+
+    .secondary {
+      background: rgba(255,255,255,.12);
+      box-shadow: none;
+    }
+
+    .final {
+      text-align: center;
+      padding: 55px 25px;
+      border-radius: 30px;
+      background: linear-gradient(
+        135deg,
+        rgba(255,67,120,.20),
+        rgba(255,255,255,.08)
+      );
+    }
+
+    .final h2 {
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-size: 25px;
+      font-family: cursive;
+      color: #ff9fba;
+    }
+
+    footer {
+      text-align: center;
+      color: #a98995;
+      padding: 30px;
+      font-size: 13px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media(max-width:600px) {
+      .card {
+        padding: 35px 20px;
+      }
+
+      .story-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="app">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="card">
+
+      <div class="small">A little story from Enaiat</div>
+
+      <h1>Maybe It's Us ❤️</h1>
+
+      <p class="subtitle">
+        Some stories begin with a perfect moment.
+        Others begin with a simple conversation...
+        and somehow become something you don't want to forget.
+      </p>
+
+      <button onclick="startStory()">
+        Open Our Story ✨
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- STORY -->
+  <section id="storySection" class="hidden">
+
+    <div class="small">Chapter One</div>
+
+    <div class="story">
+
+      <div class="story-card">
+        <div class="number">01 — THE FIRST MOMENT</div>
+        <h2>It started with curiosity.</h2>
+        <p>
+          Enaiat didn't know where this story would go.
+          Maybe nowhere. Maybe somewhere beautiful.
+          But there was one thing worth discovering:
+          who you really are.
+        </p>
+      </div>
+
+      <div class="story-card">
+        <div class="number">02 — THE CONVERSATIONS</div>
+        <h2>Then came the little things.</h2>
+        <p>
+          A random message.
+          A funny conversation.
+          A moment that made you smile when you weren't expecting it.
+          Sometimes the smallest moments become the ones we remember.
+        </p>
+      </div>
+
+      <div class="story-card">
+        <div class="number">03 — THE QUESTION</div>
+        <h2>And then...</h2>
+        <p>
+          What if two people simply gave themselves a chance
+          to discover whether their story could become something special?
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- QUESTIONS -->
+  <section id="questionsSection" class="questions hidden">
+
+    <div class="small">A little game</div>
+
+    <div class="question-box">
+
+      <div id="question">
+        Ready for a few questions? ❤️
+      </div>
+
+      <div id="answer"></div>
+
+      <div class="answers">
+        <button onclick="answerYes()">Yes 💕</button>
+        <button class="secondary" onclick="answerMaybe()">Maybe 👀</button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL -->
+  <section id="finalSection" class="hidden">
+
+    <div class="final">
+
+      <div class="small">The end... or maybe the beginning?</div>
+
+      <h2>One Last Question ❤️</h2>
+
+      <p class="subtitle">
+        If you could choose one person to make a beautiful
+        memory with this year...
+        would you choose someone who makes you smile?
+      </p>
+
+      <button onclick="finalAnswer()">
+        I Think So 💗
+      </button>
+
+      <div id="finalMessage" class="hidden">
+
+        <p style="margin-top:30px; color:#ffd5e1;">
+          Then maybe we should stop wondering
+          and start making memories. ✨
+        </p>
+
+        <div class="signature">
+          — Enaiat
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    Made with a little courage & a lot of ❤️ — Enaiat
+  </footer>
+
+</div>
+
+
+<script>
+
+  const questions = [
+    "What's more attractive: a beautiful smile or a beautiful personality? 😊",
+    "Do you believe two people can become close unexpectedly? ✨",
+    "What's your idea of a perfect evening with someone special? 🌙",
+    "Would you rather have a deep conversation or laugh together for hours? 😂",
+    "Do you think the best relationships start with friendship? 💕",
+    "What's one little thing that can instantly make you smile? 🌸"
+  ];
+
+  let currentQuestion = 0;
+
+
+  function startStory() {
+
+    document.getElementById("storySection")
+      .classList.remove("hidden");
+
+    document.getElementById("questionsSection")
+      .classList.remove("hidden");
+
+    document.getElementById("storySection")
+      .scrollIntoView({
+        behavior: "smooth"
+      });
+  }
+
+
+  function answerYes() {
+
+    document.getElementById("answer").innerText =
+      "I like that answer... 👀❤️";
+
+    nextQuestion();
+  }
+
+
+  function answerMaybe() {
+
+    document.getElementById("answer").innerText =
+      "Hmm... I'll take that as a mysterious answer 😌";
+
+    nextQuestion();
+  }
+
+
+  function nextQuestion() {
+
+    setTimeout(() => {
+
+      currentQuestion++;
+
+      if (currentQuestion < questions.length) {
+
+        document.getElementById("question").innerText =
+          questions[currentQuestion];
+
+        document.getElementById("answer").innerText = "";
+
+      } else {
+
+        document.getElementById("questionsSection")
+          .classList.add("hidden");
+
+        document.getElementById("finalSection")
+          .classList.remove("hidden");
+
+        document.getElementById("finalSection")
+          .scrollIntoView({
+            behavior: "smooth"
+          });
+
+      }
+
+    }, 700);
+  }
+
+
+  function finalAnswer() {
+
+    document.getElementById("finalMessage")
+      .classList.remove("hidden");
+
+    createHeartExplosion();
+  }
+
+
+  // Floating hearts
+  function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    const symbols = ["❤️", "💕", "💗", "💖", "✨"];
+
+    heart.innerText =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left =
+      Math.random() * 100 + "%";
+
+    heart.style.fontSize =
+      (14 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+      (5 + Math.random() * 6) + "s";
+
+    document.getElementById("hearts")
+      .appendChild(heart);
+
+    setTimeout(() => heart.remove(), 11000);
+  }
+
+
+  setInterval(createHeart, 500);
+
+
+  function createHeartExplosion() {
+
+    for(let i = 0; i < 35; i++) {
+
+      setTimeout(() => {
+
+        const heart = document.createElement("div");
+
+        heart.innerText = "❤️";
+
+        heart.style.position = "fixed";
+        heart.style.left = "50%";
+        heart.style.top = "50%";
+        heart.style.fontSize = "25px";
+        heart.style.zIndex = "9999";
+        heart.style.pointerEvents = "none";
+
+        document.body.appendChild(heart);
+
+        const x =
+          (Math.random() - .5) * 500;
+
+        const y =
+          (Math.random() - .5) * 500;
+
+        heart.animate(
+          [
+            {
+              transform: "translate(-50%, -50%) scale(.5)",
+              opacity: 1
+            },
+            {
+              transform:
+                `translate(calc(-50% + ${x}px),
+                           calc(-50% + ${y}px))
+                 scale(1.5)`,
+              opacity: 0
+            }
+          ],
+          {
+            duration: 1200,
+            easing: "ease-out"
+          }
+        );
+
+        setTimeout(() => heart.remove(), 1300);
+
+      }, i * 40);
+
+    }
+
+  }
+
+</script>
+
+</body>
+</html>
